@@ -98,6 +98,9 @@
     <Compile Include="BlockUC.xaml.cs">
       <DependentUpon>BlockUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BlockUC2.xaml.cs">
+      <DependentUpon>BlockUC2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Box.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
@@ -121,6 +124,7 @@
     <None Include="MazePuzzle_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\tiili.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -136,6 +140,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BlockUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlockUC2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

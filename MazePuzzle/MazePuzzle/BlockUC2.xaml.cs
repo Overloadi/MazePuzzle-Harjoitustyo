@@ -17,12 +17,12 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MazePuzzle
 {
-    public sealed partial class BlockUC : UserControl
+    public sealed partial class BlockUC2 : UserControl
     {
         public double LocationX { get; set; }
         public double LocationY { get; set; }
 
-        public BlockUC()
+        public BlockUC2()
         {
             this.InitializeComponent();
 
