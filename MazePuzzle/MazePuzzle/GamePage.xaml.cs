@@ -36,8 +36,13 @@ namespace MazePuzzle
         public GamePage()
         {
             this.InitializeComponent();
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+            Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
 
         }
+
+        // key listener 
+        
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -132,27 +137,32 @@ namespace MazePuzzle
 
             }
 
-            DudeUC dude = new DudeUC
-            {
-                DudeLocationX = MazeCanvas.Width / 50 * 4,
-                DudeLocationY = MazeCanvas.Height / 50
-            };
+            DudeUC dude = new DudeUC(MazeCanvas.Width / 50 * 4, 0);
+            dude.SetLocation();
             MazeCanvas.Children.Add(dude);
         }
 
-        private void Timer_Tick(object sender, object e)
-        {
-            // move butterfly
-            if (UpPressed) dude.Move();
+             private void Timer_Tick(object sender, object e)
+            {
+                // move up
+                if (UpPressed) dude.MoveUp();
 
-            // rotate butterfly
-           
+            // move right
+            if (RightPressed) dude.MoveRight();
 
-            // update location
-            dude.Setlocation();
-            // collision to flower
-            //CheckCollision();
-        }
+            // move down
+            if (DownPressed) dude.MoveDown();
+
+            // move left
+            if (LeftPressed) dude.MoveLeft();
+                // rotate butterfly
+
+
+                // update location
+                dude.SetLocation();
+                // collision to flower
+              //CheckCollision();
+           }
 
         private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
@@ -167,6 +177,9 @@ namespace MazePuzzle
                     break;
                 case VirtualKey.Right:
                     RightPressed = false;
+                    break;
+                case VirtualKey.Down:
+                    DownPressed = false;
                     break;
             }
         }
@@ -185,12 +198,12 @@ namespace MazePuzzle
                 case VirtualKey.Right:
                     RightPressed = true;
                     break;
+                case VirtualKey.Down:
+                    DownPressed = true;
+                    break;
 
             }
         }
-
-    }
-
 
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)

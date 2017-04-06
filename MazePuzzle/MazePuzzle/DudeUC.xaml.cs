@@ -19,20 +19,45 @@ namespace MazePuzzle
 {
     public sealed partial class DudeUC : UserControl
     {
-        public DudeUC()
+        public DudeUC(double locationx, double locationy)
         {
             this.InitializeComponent();
+            this.DudeLocationX = locationx;
+            this.DudeLocationY = locationy;
         }
 
         public double DudeLocationX { get; set; }
         public double DudeLocationY { get; set; }
 
-        //public void SetLocation()
-        //{
-        //    SetValue(Canvas.LeftProperty, DudeLocationX);
-        //    SetValue(Canvas.TopProperty, DudeLocationY);
-        //}
+        public void SetLocation()
+        {
+            SetValue(Canvas.LeftProperty, DudeLocationX);
+            SetValue(Canvas.TopProperty, DudeLocationY);
+        }
 
+        public void MoveUp()
+        {
+            DudeLocationY =+ 26;
+            SetLocation();
+        }
+
+        public void MoveRight()
+        {
+            DudeLocationX =+ 18;
+            SetLocation();
+        }
+
+        public void MoveDown()
+        {
+            DudeLocationY =- 26;
+            SetLocation();
+        }
+
+        public void MoveLeft()
+        {
+            DudeLocationX =- 18;
+            SetLocation();
+        }
 
     }
 }
