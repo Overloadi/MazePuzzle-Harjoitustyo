@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="MazePuzzle.BlockUC2"
+    x:Class="MazePuzzle.DudeUC"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MazePuzzle"
@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Rectangle Width="26" Height="18" Fill="Gray">
+    <Rectangle Width="26" Height="18" Fill="Yellow">
 
     </Rectangle>
 </UserControl>

@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Rectangle Width="130" Height="90">
+    <Rectangle Width="26" Height="18">
         <Rectangle.Fill>
             <ImageBrush ImageSource="Assets/tiili.jpg" Stretch="Fill" AlignmentX="Left" AlignmentY="Top"/>
         </Rectangle.Fill>

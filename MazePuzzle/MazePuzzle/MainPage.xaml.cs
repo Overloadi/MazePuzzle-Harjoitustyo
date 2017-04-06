@@ -29,7 +29,6 @@ namespace MazePuzzle
         {
             this.InitializeComponent();
 
-
         }
 
 

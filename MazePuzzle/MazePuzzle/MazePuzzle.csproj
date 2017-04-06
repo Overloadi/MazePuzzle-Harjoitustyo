@@ -102,6 +102,9 @@
       <DependentUpon>BlockUC2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Box.cs" />
+    <Compile Include="DudeUC.xaml.cs">
+      <DependentUpon>DudeUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BlockUC2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DudeUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
