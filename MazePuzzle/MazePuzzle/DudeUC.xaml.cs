@@ -26,6 +26,8 @@ namespace MazePuzzle
             this.DudeLocationY = locationy;
         }
 
+
+
         public double DudeLocationX { get; set; }
         public double DudeLocationY { get; set; }
 
@@ -37,27 +39,32 @@ namespace MazePuzzle
 
         public void MoveUp()
         {
-            DudeLocationY =+ 26;
+            // DudeLocationY =+ 26;
+            DudeLocationY = DudeLocationY - 18;
             SetLocation();
         }
 
         public void MoveRight()
         {
-            DudeLocationX =+ 18;
+            // DudeLocationX =+ 18;
+            DudeLocationX = DudeLocationX + 26;
             SetLocation();
         }
 
         public void MoveDown()
         {
-            DudeLocationY =- 26;
+            // DudeLocationY =- 26;
+            DudeLocationY = DudeLocationY + 18;
             SetLocation();
         }
 
         public void MoveLeft()
         {
-            DudeLocationX =- 18;
+            // DudeLocationX =- 18;
+            DudeLocationX = DudeLocationX - 26;
             SetLocation();
         }
+
 
     }
 }
