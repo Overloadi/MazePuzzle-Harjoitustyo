@@ -34,6 +34,8 @@ namespace MazePuzzle
         private bool LeftPressed;
         private bool RightPressed;
         private DispatcherTimer timer;
+        private Stopwatch stopwatch;
+        public List<HighScore> highscores = new List<HighScore>();
         //public object MyCanvas { get; private set; }
 
         public GamePage()
@@ -48,7 +50,7 @@ namespace MazePuzzle
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            stopwatch = new Stopwatch();
             blocks = new List<BlockUC>();
             blocks2 = new List<BlockUC2>();
             int[,] matrix10 = new int[50, 50] {
@@ -153,9 +155,15 @@ namespace MazePuzzle
             timer.Interval = new TimeSpan(0, 0, 0, 0, 50);
             timer.Tick += Timer_Tick;
             timer.Start();
+            stopwatch.Start();
 
         }
 
+        /// <summary>
+        /// Listen to keypresses and move accordingly
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, object e)
         {
             // move up
@@ -204,6 +212,11 @@ namespace MazePuzzle
             //CheckCollision();
         }
 
+        /// <summary>
+        /// Release the key
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
             switch (args.VirtualKey)
@@ -224,6 +237,11 @@ namespace MazePuzzle
             }
         }
 
+        /// <summary>
+        /// Press the key
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
             switch (args.VirtualKey)
@@ -244,6 +262,10 @@ namespace MazePuzzle
             }
         }
 
+        /// <summary>
+        /// Checks if current location has the same coordinates as a wall to prevent player from going through walls
+        /// </summary>
+        /// <returns>True if player collides with a wall</returns>
         private bool CheckCollision()
         {
             foreach (BlockUC wall in blocks)
@@ -256,14 +278,28 @@ namespace MazePuzzle
             return false;
             
         }
+
+        /// <summary>
+        /// Handler for goalReached message
+        /// </summary>
+        /// <param name="command"></param>
         private void CommandInvokedHandler(IUICommand command)
         {
             Debug.WriteLine("The '" + command.Label + "' command has been selected.");
         }
+
+        /// <summary>
+        /// Stop the timers and print a message, when the labyrinth is solved
+        /// </summary>
         private async void goalReached()
         {
             timer.Stop();
-            var Msg = new MessageDialog("WINNER WINNER CHICKEN DINNER","WINNER");
+            stopwatch.Stop();
+            double timeElapsed = stopwatch.Elapsed.TotalSeconds;
+            stopwatch.Reset();
+            HighScore highscore = new HighScore(1, timeElapsed);
+            highscores.Add(highscore);
+            var Msg = new MessageDialog("You solved the labyrinth in " + timeElapsed + " seconds" ,"WINNER");
             Msg.Commands.Add(new UICommand(
                 "Yippee",
                 new UICommandInvokedHandler(this.CommandInvokedHandler)));
@@ -273,15 +309,31 @@ namespace MazePuzzle
             
         }
 
+        /// <summary>
+        /// Reset the labyrinth
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
+
+        /// <summary>
+        /// Go to the highscore page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HighscoresButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Highscore));
         }
 
+        /// <summary>
+        /// Go to the tutorial page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TutorialButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Tutorial));

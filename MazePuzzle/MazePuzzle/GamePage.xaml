@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="283*"/>
-            <ColumnDefinition Width="101*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="5,5,5,5" Grid.Column="1">
             <Button x:Name="StartButton" Margin="0,50,0,0" Content="Start the game" VerticalAlignment="Center" HorizontalAlignment="Center" Click="StartButton_Click"/>

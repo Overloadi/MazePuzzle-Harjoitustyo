@@ -8,6 +8,16 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="BackButton" Content="Back" Width="500" Height="300" FontSize="230" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BackButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" x:Name="textBoxhighscores" Text="Highscores" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="50"/>
+        <ScrollViewer Grid.Row ="1" Margin="10,10,10,10">
+            <TextBox x:Name="highScoresTextBox"/>
+        </ScrollViewer>
+        <Button Grid.Row="2" x:Name="BackButton" Content="Back" Width="300" Height="150" FontSize="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BackButton_Click"/>
+        <Button Grid.Row="2" x:Name="ShowHighscores" Content="Show Highscores" Width="300" Height="150" FontSize="35" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ShowHighscores_Click"/>
     </Grid>
 </Page>

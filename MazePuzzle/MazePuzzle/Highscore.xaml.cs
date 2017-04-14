@@ -25,6 +25,7 @@ namespace MazePuzzle
         public Highscore()
         {
             this.InitializeComponent();
+            
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,11 @@ namespace MazePuzzle
             {
                 rootFrame.GoBack();
             }
+        }
+
+        private void ShowHighscores_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
