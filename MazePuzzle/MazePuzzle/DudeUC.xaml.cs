@@ -31,12 +31,18 @@ namespace MazePuzzle
         public double DudeLocationX { get; set; }
         public double DudeLocationY { get; set; }
 
+        /// <summary>
+        /// Set the location of the player
+        /// </summary>
         public void SetLocation()
         {
             SetValue(Canvas.LeftProperty, DudeLocationX);
             SetValue(Canvas.TopProperty, DudeLocationY);
         }
 
+        /// <summary>
+        /// Move the player up
+        /// </summary>
         public void MoveUp()
         {
             // DudeLocationY =+ 26;
@@ -44,6 +50,9 @@ namespace MazePuzzle
             SetLocation();
         }
 
+        /// <summary>
+        /// Move the player right
+        /// </summary>
         public void MoveRight()
         {
             // DudeLocationX =+ 18;
@@ -51,6 +60,9 @@ namespace MazePuzzle
             SetLocation();
         }
 
+        /// <summary>
+        /// Move the player down
+        /// </summary>
         public void MoveDown()
         {
             // DudeLocationY =- 26;
@@ -58,6 +70,9 @@ namespace MazePuzzle
             SetLocation();
         }
 
+        /// <summary>
+        /// Move the player left
+        /// </summary>
         public void MoveLeft()
         {
             // DudeLocationX =- 18;
