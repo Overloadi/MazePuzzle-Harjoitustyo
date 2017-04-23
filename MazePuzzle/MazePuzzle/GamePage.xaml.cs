@@ -36,6 +36,7 @@ namespace MazePuzzle
         private DispatcherTimer timer;
         private Stopwatch stopwatch;
         public List<HighScore> highscores = new List<HighScore>();
+        private int currentMazeIndex;
         //public object MyCanvas { get; private set; }
 
         public GamePage()
@@ -338,5 +339,14 @@ namespace MazePuzzle
         {
             this.Frame.Navigate(typeof(Tutorial));
         }
+
+        private async void MazeSelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            MazeSelect mazeselectwindow = new MazeSelect();
+            await mazeselectwindow.ShowAsync();
+            currentMazeIndex = mazeselectwindow.getMazeIndex();
+            tempBlock.Text = currentMazeIndex.ToString();
+        }
+
     }
 }
