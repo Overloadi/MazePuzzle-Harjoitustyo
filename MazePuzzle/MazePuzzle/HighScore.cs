@@ -11,12 +11,14 @@ namespace MazePuzzle
     public class HighScore
     {
         public int MazeID { get; set; }
+        public string Name;
         public double Time { get; set; }
         // List<HighScore> highscores = new List<HighScore>();
 
-        public HighScore(int mazeid, double time)
+        public HighScore(int mazeid, string name, double time)
         {
             this.MazeID = mazeid;
+            this.Name = name;
             this.Time = time;
         }
 
@@ -27,7 +29,7 @@ namespace MazePuzzle
 
         public override string ToString()
         {
-            return this.MazeID + " " + this.Time;
+            return this.MazeID + "|" + this.Name + "|" + this.Time;
         }
 
     }
