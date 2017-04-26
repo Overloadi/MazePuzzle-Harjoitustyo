@@ -22,8 +22,6 @@ namespace MazePuzzle
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
-        
         /// <summary>
         /// Initialize the page
         /// </summary>
@@ -70,7 +68,7 @@ namespace MazePuzzle
         /// <param name="e"></param>
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Exit();
         }
     }
 }

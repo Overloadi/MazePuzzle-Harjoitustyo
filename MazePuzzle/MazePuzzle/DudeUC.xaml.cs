@@ -61,7 +61,6 @@ namespace MazePuzzle
         {
             DudeLocationX = DudeLocationX + 26;
             SetLocation();
-
         }
 
         /// <summary>

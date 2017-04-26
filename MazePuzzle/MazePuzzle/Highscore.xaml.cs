@@ -70,8 +70,6 @@ namespace MazePuzzle
         {
             OpenFile();
             string temp;
-            // highScoresTextBox.Text = await Windows.Storage.FileIO.ReadTextAsync(highscoresFile);
-            
             IList<String> lines = await Windows.Storage.FileIO.ReadLinesAsync(highscoresFile);
             for (int i = 0; i < lines.Count; i++)
             {
@@ -80,26 +78,6 @@ namespace MazePuzzle
                 highScoresTextBlock.Text += temp;
                 highScoresTextBlock.Text += "\r";
             }
-            /*try
-            {
-                var TopScores = File.ReadLines(path);
-                highScoresTextBox.Text = TopScores.ToString();
-            } */
-            /*try
-            {
-                text = System.IO.File.ReadAllText(path);
-            }
-            catch (Exception ee)
-            {
-                var Msg = new MessageDialog(ee.Message, "Error");
-                Msg.Commands.Add(new UICommand(
-                    "Shit",
-                    new UICommandInvokedHandler(this.CommandInvokedHandler)));
-                Msg.DefaultCommandIndex = 0;
-                Msg.CancelCommandIndex = 0;
-                await Msg.ShowAsync();
-            } */
-
         }
     }
 }

@@ -17,43 +17,48 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MazePuzzle
 {
-    
+    /// <summary>
+    /// Window for the maze selection.
+    /// </summary>
     public sealed partial class MazeSelect : ContentDialog
     {
-        //ListView listview = new ListView();
         public int index = 0;
+        /// <summary>
+        /// Initialize the window
+        /// </summary>
         public MazeSelect()
         {
             this.InitializeComponent();
 
-            /*List<string> items = new List<string>();
-            items.Add("Maze 1");
-            items.Add("Maze 2");
-            items.Add("Maze 3");
-            listview.ItemsSource = items; */
         }
 
 
-
+        /// <summary>
+        /// Save the selected maze's index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            // index = listview.Items.IndexOf(listview.SelectedItem);
             index = mazeSelectListView.SelectedIndex;
         }
 
+        /// <summary>
+        /// Cancel the selection, reset the selection to the default maze.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             index = 0;
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // index = listview.Items.IndexOf(listview.SelectedItems[0]);
-        }
-
+        /// <summary>
+        /// Return the selected maze's index.
+        /// </summary>
+        /// <returns></returns>
         public int getMazeIndex()
         {
-
             return this.index;
         }
     }

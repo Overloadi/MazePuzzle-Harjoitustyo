@@ -95,7 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Box.cs" />
     <Compile Include="DudeUC.xaml.cs">
       <DependentUpon>DudeUC.xaml</DependentUpon>
     </Compile>
@@ -109,7 +108,6 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Maze.cs" />
     <Compile Include="MazeSelect.xaml.cs">
       <DependentUpon>MazeSelect.xaml</DependentUpon>
     </Compile>
