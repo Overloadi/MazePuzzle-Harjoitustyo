@@ -17,22 +17,28 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MazePuzzle
 {
-    public sealed partial class BlockUC : UserControl
+    /// <summary>
+    /// Class for the maze's walls, which cannot be crossed
+    /// </summary>
+    public sealed partial class Wall : UserControl
     {
         public double LocationX { get; set; }
         public double LocationY { get; set; }
-
-        public BlockUC()
+        /// <summary>
+        /// Initialize the wall
+        /// </summary>
+        public Wall()
         {
             this.InitializeComponent();
-
-
         }
+
+        /// <summary>
+        /// Set the wall's location
+        /// </summary>
         public void Setlocation()
         {
             SetValue(Canvas.LeftProperty, LocationX);
             SetValue(Canvas.TopProperty, LocationY);
         }
-
     }
 }

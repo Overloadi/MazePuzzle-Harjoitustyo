@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="MazePuzzle.BlockUC"
+    x:Class="MazePuzzle.Path"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MazePuzzle"
@@ -9,9 +9,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Rectangle Width="26" Height="18">
-        <Rectangle.Fill>
-            <ImageBrush ImageSource="Assets/tiili.jpg" Stretch="Fill" AlignmentX="Left" AlignmentY="Top"/>
-        </Rectangle.Fill>
+    <Rectangle Width="26" Height="18" Fill="Gray">
     </Rectangle>
 </UserControl>

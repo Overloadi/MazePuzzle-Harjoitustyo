@@ -15,10 +15,10 @@
     <Grid>
         <ListView x:Name="mazeSelectListView">
             <ListViewItem>
-                <TextBlock>Maze 1</TextBlock>
+                <TextBlock>Beginner Maze</TextBlock>
             </ListViewItem>
             <ListViewItem>
-                <TextBlock>Maze 2</TextBlock>
+                <TextBlock>EZ Maze</TextBlock>
             </ListViewItem>
             <ListViewItem>
                 <TextBlock>Maze 3</TextBlock>

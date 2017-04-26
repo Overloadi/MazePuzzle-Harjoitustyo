@@ -17,22 +17,27 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MazePuzzle
 {
-    public sealed partial class BlockUC2 : UserControl
+    /// <summary>
+    /// Class for the maze's path, which the player can follow
+    /// </summary>
+    public sealed partial class Path : UserControl
     {
         public double LocationX { get; set; }
         public double LocationY { get; set; }
-
-        public BlockUC2()
+        /// <summary>
+        /// Initialize the path
+        /// </summary>
+        public Path()
         {
             this.InitializeComponent();
-
-
         }
+        /// <summary>
+        /// Set a location for the path
+        /// </summary>
         public void Setlocation()
         {
             SetValue(Canvas.LeftProperty, LocationX);
             SetValue(Canvas.TopProperty, LocationY);
         }
-
     }
 }

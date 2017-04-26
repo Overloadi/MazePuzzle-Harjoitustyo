@@ -27,9 +27,9 @@ namespace MazePuzzle
     public sealed partial class GamePage : Page
     {
         private DudeUC dude;
-        private BlockUC2 goal = new BlockUC2();
-        private List<BlockUC> blocks;
-        private List<BlockUC2> blocks2;
+        private Path goal = new Path();
+        private List<Wall> blocks;
+        private List<Path> blocks2;
         private bool UpPressed;
         private bool DownPressed;
         private bool LeftPressed;
@@ -168,8 +168,8 @@ namespace MazePuzzle
                 currentmatrix = matrix10;
             }
             
-            blocks = new List<BlockUC>();
-            blocks2 = new List<BlockUC2>();
+            blocks = new List<Wall>();
+            blocks2 = new List<Path>();
            
             var rowCount = currentmatrix.GetLength(0);
             var colCount = currentmatrix.GetLength(1);
@@ -183,7 +183,7 @@ namespace MazePuzzle
                 {
                     if (currentmatrix[row, col] == 0)
                     {
-                        BlockUC wall = new BlockUC();
+                        Wall wall = new Wall();
                         wall.LocationX = sivusuunta * (MazeCanvas.Width / 50);
                         wall.LocationY = pystysuunta * (MazeCanvas.Height / 50);
                         MazeCanvas.Children.Add(wall);
@@ -193,7 +193,7 @@ namespace MazePuzzle
                     }
                     else if (currentmatrix[row, col] == 1 || currentmatrix[row, col] == 3 || currentmatrix[row, col] == 4)
                     {
-                        BlockUC2 path = new BlockUC2();
+                        Path path = new Path();
                         path.LocationX = sivusuunta * (MazeCanvas.Width / 50);
                         path.LocationY = pystysuunta * (MazeCanvas.Height / 50);
                         MazeCanvas.Children.Add(path);
@@ -324,7 +324,7 @@ namespace MazePuzzle
         /// <returns>True if player collides with a wall</returns>
         private bool CheckCollision()
         {
-            foreach (BlockUC wall in blocks)
+            foreach (Wall wall in blocks)
             {
                 if (wall.LocationX == dude.DudeLocationX && wall.LocationY == dude.DudeLocationY) return true;
             }
