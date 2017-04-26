@@ -18,14 +18,23 @@ using Windows.UI.Xaml.Navigation;
 namespace MazePuzzle
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Tutorial page, where the maze game is explained
     /// </summary>
     public sealed partial class Tutorial : Page
     {
+        /// <summary>
+        /// Initialize the page
+        /// </summary>
         public Tutorial()
         {
             this.InitializeComponent();
         }
+
+        /// <summary>
+        /// Go back to the previous page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;

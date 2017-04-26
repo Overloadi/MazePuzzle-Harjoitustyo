@@ -18,35 +18,56 @@ using Windows.UI.Xaml.Navigation;
 namespace MazePuzzle
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Main page, where user can choose to go to the game page, view the tutorial page or view the highscore page
     /// </summary>
     public sealed partial class MainPage : Page
     {
 
         
-
+        /// <summary>
+        /// Initialize the page
+        /// </summary>
         public MainPage()
         {
             this.InitializeComponent();
 
         }
 
-
+        /// <summary>
+        /// Go to the highscores page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HighscoresButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Highscore));
         }
 
+        /// <summary>
+        /// Go to the tutorial page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TutorialButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Tutorial));
         }
-
+        
+        /// <summary>
+        /// Go to the game page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(GamePage));
         }
 
+        /// <summary>
+        /// Exit the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
 

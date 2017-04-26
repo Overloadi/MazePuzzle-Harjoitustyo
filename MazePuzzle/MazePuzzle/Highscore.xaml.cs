@@ -22,17 +22,26 @@ using Windows.UI.Xaml.Navigation;
 namespace MazePuzzle
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Highscore page, where the user can see all saved highscores.
     /// </summary>
     public sealed partial class Highscore : Page
     {
         private Windows.Storage.StorageFile highscoresFile;
+
+        /// <summary>
+        /// Initialize the page
+        /// </summary>
         public Highscore()
         {
             this.InitializeComponent();
             
         }
 
+        /// <summary>
+        /// Go back to the previous page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
@@ -43,22 +52,26 @@ namespace MazePuzzle
             }
         }
 
-        private void CommandInvokedHandler(IUICommand command)
-        {
-            Debug.WriteLine("The '" + command.Label + "' command has been selected.");
-        }
-
+        /// <summary>
+        /// Open the folder where the highscores.txt is and open the text file for reading
+        /// </summary>
         private async void OpenFile()
         {
             Windows.Storage.StorageFolder highscoresfolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             highscoresFile = await highscoresfolder.CreateFileAsync("highscores.txt", Windows.Storage.CreationCollisionOption.OpenIfExists);
         }
 
+        /// <summary>
+        /// Read the highscores from highscores.txt and display them on the textblock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ShowHighscores_Click(object sender, RoutedEventArgs e)
         {
             OpenFile();
             string temp;
             // highScoresTextBox.Text = await Windows.Storage.FileIO.ReadTextAsync(highscoresFile);
+            
             IList<String> lines = await Windows.Storage.FileIO.ReadLinesAsync(highscoresFile);
             for (int i = 0; i < lines.Count; i++)
             {

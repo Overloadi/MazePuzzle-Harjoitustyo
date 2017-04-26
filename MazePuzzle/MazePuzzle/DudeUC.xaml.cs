@@ -19,6 +19,13 @@ namespace MazePuzzle
 {
     public sealed partial class DudeUC : UserControl
     {
+        public double DudeLocationX { get; set; }
+        public double DudeLocationY { get; set; }
+        /// <summary>
+        /// Create the player charater
+        /// </summary>
+        /// <param name="locationx">Player's starting location x-coordinate</param>
+        /// <param name="locationy">Player's starting location y-coordinate</param>
         public DudeUC(double locationx, double locationy)
         {
             this.InitializeComponent();
@@ -26,13 +33,8 @@ namespace MazePuzzle
             this.DudeLocationY = locationy;
         }
 
-
-
-        public double DudeLocationX { get; set; }
-        public double DudeLocationY { get; set; }
-
         /// <summary>
-        /// Set the location of the player
+        /// Set the location of the player on the maze canvas
         /// </summary>
         public void SetLocation()
         {

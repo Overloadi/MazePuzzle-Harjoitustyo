@@ -22,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 namespace MazePuzzle
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Game page, where the user can play the maze puzzle game.
     /// </summary>
     public sealed partial class GamePage : Page
     {
@@ -34,10 +34,9 @@ namespace MazePuzzle
         private bool DownPressed;
         private bool LeftPressed;
         private bool RightPressed;
-        // private DispatcherTimer timer;
-        private Stopwatch stopwatch;
         public List<HighScore> highscores = new List<HighScore>();
         private int currentMazeIndex;
+        private string currentMazeName;
         private int[,] matrix10 = new int[50, 50] {
 {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 4},
@@ -142,8 +141,12 @@ namespace MazePuzzle
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},};
         private int[,] currentmatrix;
         private DispatcherTimer timer = new DispatcherTimer();
+        private Stopwatch stopwatch = new Stopwatch();
         //public object MyCanvas { get; private set; }
 
+        /// <summary>
+        /// Initialize the game page, initialize the timer 
+        /// </summary>
         public GamePage()
         {
             this.InitializeComponent();
@@ -152,28 +155,26 @@ namespace MazePuzzle
             timer.Interval = new TimeSpan(0, 0, 0, 0, 50);
             timer.Tick += Timer_Tick;
         }
-
-        // key listener 
         
-
+        /// <summary>
+        /// When the start button is pressed, start the game. Wall and path are drawn on the canvas and the player character is placed in the maze. Dispatch timer and stopwatch timer are started.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             if (currentmatrix == null)
             {
                 currentmatrix = matrix10;
             }
-            stopwatch = new Stopwatch();
+            
             blocks = new List<BlockUC>();
             blocks2 = new List<BlockUC2>();
            
-
-           
-
             var rowCount = currentmatrix.GetLength(0);
             var colCount = currentmatrix.GetLength(1);
             int sivusuunta = 0;
-            int pystysuunta = 0;
-            
+            int pystysuunta = 0;      
 
             for (int row = 0; row < rowCount; row++)
             {
@@ -192,7 +193,6 @@ namespace MazePuzzle
                     }
                     else if (currentmatrix[row, col] == 1 || currentmatrix[row, col] == 3 || currentmatrix[row, col] == 4)
                     {
-
                         BlockUC2 path = new BlockUC2();
                         path.LocationX = sivusuunta * (MazeCanvas.Width / 50);
                         path.LocationY = pystysuunta * (MazeCanvas.Height / 50);
@@ -209,19 +209,15 @@ namespace MazePuzzle
                 }
                 pystysuunta++;
                 sivusuunta = 0;
-
             }
 
             dude = new DudeUC(MazeCanvas.Width / 50 * 4, 0);
-            // dude.SetLocation();
             MazeCanvas.Children.Add(dude);
 
             if (!timer.IsEnabled) {
                 timer.Start();
             }
-            
             stopwatch.Start();
-
         }
 
         /// <summary>
@@ -268,13 +264,8 @@ namespace MazePuzzle
                     dude.DudeLocationX += 26;
                 }
             }
-            // rotate butterfly
 
-
-            // update location
             dude.SetLocation();
-            // collision to flower
-            //CheckCollision();
         }
 
         /// <summary>
@@ -345,15 +336,6 @@ namespace MazePuzzle
         }
 
         /// <summary>
-        /// Handler for goalReached message
-        /// </summary>
-        /// <param name="command"></param>
-        /*private void CommandInvokedHandler(IUICommand command)
-        {
-            Debug.WriteLine("The '" + command.Label + "' command has been selected.");
-        } */
-
-        /// <summary>
         /// Stop the timers and print a message, when the labyrinth is solved
         /// </summary>
         private async void goalReached()
@@ -362,19 +344,12 @@ namespace MazePuzzle
             stopwatch.Stop();
             double timeElapsed = stopwatch.Elapsed.TotalSeconds;
             stopwatch.Reset();
-            /*var Msg = new MessageDialog("You solved the labyrinth in " + timeElapsed + " seconds" ,"WINNER");
-            Msg.Commands.Add(new UICommand(
-                "Yippee",
-                new UICommandInvokedHandler(this.CommandInvokedHandler)));
-            Msg.DefaultCommandIndex = 0;
-            Msg.CancelCommandIndex = 0;
-            await Msg.ShowAsync(); */
             WinnerWindow winnerwindow = new WinnerWindow();
             winnerwindow.showTime(timeElapsed);
             await winnerwindow.ShowAsync();
             string name = winnerwindow.getName();
             if (name != "") { 
-                HighScore highscore = new HighScore(currentMazeIndex, name, timeElapsed);
+                HighScore highscore = new HighScore(currentMazeName, name, timeElapsed);
                 // highscores.Add(highscore);
                 saveHighscores(highscore);
                 // highscores.Remove(highscore);
@@ -424,6 +399,11 @@ namespace MazePuzzle
             this.Frame.Navigate(typeof(Tutorial));
         }
 
+        /// <summary>
+        /// Open a new window, where the user can choose a different maze to play on.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void MazeSelectButton_Click(object sender, RoutedEventArgs e)
         {
             MazeSelect mazeselectwindow = new MazeSelect();
@@ -434,9 +414,11 @@ namespace MazePuzzle
             {
                 case 0:
                     currentmatrix = matrix10;
+                    currentMazeName = "Beginner Maze";
                     break;
                 case 1:
                     currentmatrix = matrix2;
+                    currentMazeName = "Ez Maze";
                     break;
             }
             stopwatch.Reset();

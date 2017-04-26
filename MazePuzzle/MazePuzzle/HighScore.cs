@@ -7,29 +7,35 @@ using System.Threading.Tasks;
 
 namespace MazePuzzle
 {
-    // [Serializable]
+    /// <summary>
+    /// Class, where the highscores are saved as objects
+    /// </summary>
     public class HighScore
     {
-        public int MazeID { get; set; }
+        public string MazeName { get; set; }
         public string Name;
         public double Time { get; set; }
-        // List<HighScore> highscores = new List<HighScore>();
 
-        public HighScore(int mazeid, string name, double time)
+        /// <summary>
+        /// Create the object
+        /// </summary>
+        /// <param name="mazename">Name of the maze</param>
+        /// <param name="name">Player's name</param>
+        /// <param name="time">Player's time</param>
+        public HighScore(string mazename, string name, double time)
         {
-            this.MazeID = mazeid;
+            this.MazeName = mazename;
             this.Name = name;
             this.Time = time;
         }
 
-        /*public void addToHighScores(HighScore newscore)
-        {
-            highscores.Add(newscore);
-        } */
-
+        /// <summary>
+        /// Used when highscores are saved into the highscores file
+        /// </summary>
+        /// <returns>Highscore object data separated with '|'</returns>
         public override string ToString()
         {
-            return this.MazeID + "|" + this.Name + "|" + this.Time;
+            return this.MazeName + "|" + this.Name + "|" + this.Time;
         }
 
     }
