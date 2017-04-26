@@ -138,6 +138,7 @@
     <Content Include="Assets\tausta.jpg" />
     <Content Include="Assets\Tausta1.jpg" />
     <Content Include="Assets\tiili.jpg" />
+    <Content Include="Assets\Tutoriaali.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

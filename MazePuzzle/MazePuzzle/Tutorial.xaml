@@ -8,6 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="BackButton" Content="Back" Width="500" Height="300" FontSize="230" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BackButton_Click"/>
+        <Image Stretch="Fill" Source="Assets/Tutoriaali.png" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        
+        <Button Grid.Row="2" x:Name="BackButton" Content="Back" Width="300" Height="150" FontSize="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BackButton_Click"/>
     </Grid>
 </Page>

@@ -18,10 +18,10 @@
                 <TextBlock>Beginner Maze</TextBlock>
             </ListViewItem>
             <ListViewItem>
-                <TextBlock>EZ Maze</TextBlock>
+                <TextBlock>Test Maze</TextBlock>
             </ListViewItem>
             <ListViewItem>
-                <TextBlock>Maze 3</TextBlock>
+                <TextBlock>Sick Maze</TextBlock>
             </ListViewItem>
         </ListView>
     </Grid>
