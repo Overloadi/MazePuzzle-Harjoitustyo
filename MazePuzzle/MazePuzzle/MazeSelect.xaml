@@ -23,9 +23,12 @@
             <ListViewItem>
                 <TextBlock>Sick Maze</TextBlock>
             </ListViewItem>
-            <ListView>
+            <ListViewItem>
                 <TextBlock>Niko's Maze</TextBlock>
-            </ListView>
+            </ListViewItem>
+            <ListViewItem>
+                <TextBlock>Where's the exit?</TextBlock>
+            </ListViewItem>
         </ListView>
     </Grid>
 </ContentDialog>
