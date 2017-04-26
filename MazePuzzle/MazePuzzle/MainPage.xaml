@@ -8,10 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="EBIN MAZE PELI" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" FontSize="200"/>
-        <Button x:Name="PlayButton" Margin="0,0,0,0" Content="Play" VerticalAlignment="Center" HorizontalAlignment="Center" Click="PlayButton_Click"/>
-        <Button x:Name="HighscoresButton" Margin="0,100,0,0" Content="Highscore" VerticalAlignment="Center" HorizontalAlignment="Center" Click="HighscoresButton_Click"/>
-        <Button x:Name="TutorialButton" Margin="0,200,0,0" Content="Tutorial" VerticalAlignment="Center" HorizontalAlignment="Center" Click="TutorialButton_Click"/>
-        <Button x:Name="ExitButton" Margin="0,300,0,0" Content="Exit" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ExitButton_Click"/>
+        <TextBlock Text=" " HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" FontSize="200"/>
+        <Image Stretch="Fill" Source="Assets/Tausta1.jpg" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Button x:Name="PlayButton" Margin="0,0,0,150" Content="Play" VerticalAlignment="Center" HorizontalAlignment="Center" Click="PlayButton_Click"/>
+        <Button x:Name="HighscoresButton" Margin="0,100,0,150" Content="Highscore" VerticalAlignment="Center" HorizontalAlignment="Center" Click="HighscoresButton_Click"/>
+        <Button x:Name="TutorialButton" Margin="0,200,0,150" Content="Tutorial" VerticalAlignment="Center" HorizontalAlignment="Center" Click="TutorialButton_Click"/>
+        <Button x:Name="ExitButton" Margin="0,300,0,150" Content="Exit" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ExitButton_Click"/>
     </Grid>
 </Page>

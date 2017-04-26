@@ -6,12 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Blue">
+
+
+        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="283*"/>
             <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
+        <Image Stretch="Fill" Source="Assets/Tausta1.jpg" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
         <StackPanel Margin="5,5,5,5" Grid.Column="1">
             <Button x:Name="StartButton" Margin="0,50,0,0" Content="Start the game" VerticalAlignment="Center" HorizontalAlignment="Center" Click="StartButton_Click"/>
             <Button x:Name="ResetButton" Margin="0,50,0,0" Content="Reset the maze" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ResetButton_Click"/>
@@ -21,7 +28,9 @@
         </StackPanel>
         <Grid Width="1300" Height="900" Margin="50,40,50,40" Grid.Column="0">
             <Canvas x:Name="MazeCanvas" Background="Gray" Width="1300" Height="900" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            
         </Grid>
-        <TextBlock x:Name="tempBlock" FontSize="30" TextAlignment="Center" HorizontalAlignment="Left" Margin="698,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="52" Width="286"/>
+        <TextBlock x:Name="tempBlock" FontSize="30" TextAlignment="Center" HorizontalAlignment="Left" Margin="698,10,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Height="52" Width="286"/>
     </Grid>
+    
 </Page>
