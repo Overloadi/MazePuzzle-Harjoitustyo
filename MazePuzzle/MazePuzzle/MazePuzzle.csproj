@@ -134,6 +134,7 @@
     <None Include="MazePuzzle_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\dudeUC.png" />
     <Content Include="Assets\tiili.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

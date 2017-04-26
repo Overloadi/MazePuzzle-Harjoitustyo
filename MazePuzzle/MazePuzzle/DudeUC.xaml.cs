@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MazePuzzle
 {
+    /// <summary>
+    /// Class for a character that the player can control.
+    /// </summary>
     public sealed partial class DudeUC : UserControl
     {
         public double DudeLocationX { get; set; }
@@ -43,41 +46,38 @@ namespace MazePuzzle
         }
 
         /// <summary>
-        /// Move the player up
+        /// Move the player one block up
         /// </summary>
         public void MoveUp()
         {
-            // DudeLocationY =+ 26;
             DudeLocationY = DudeLocationY - 18;
             SetLocation();
         }
 
         /// <summary>
-        /// Move the player right
+        /// Move the player one block right
         /// </summary>
         public void MoveRight()
         {
-            // DudeLocationX =+ 18;
             DudeLocationX = DudeLocationX + 26;
             SetLocation();
+
         }
 
         /// <summary>
-        /// Move the player down
+        /// Move the player one block down
         /// </summary>
         public void MoveDown()
         {
-            // DudeLocationY =- 26;
             DudeLocationY = DudeLocationY + 18;
             SetLocation();
         }
 
         /// <summary>
-        /// Move the player left
+        /// Move the player one block left 
         /// </summary>
         public void MoveLeft()
         {
-            // DudeLocationX =- 18;
             DudeLocationX = DudeLocationX - 26;
             SetLocation();
         }

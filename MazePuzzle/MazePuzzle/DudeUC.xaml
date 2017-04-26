@@ -9,7 +9,9 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Rectangle Width="26" Height="18" Fill="Yellow">
-
+    <Rectangle Width="26" Height="18">
+        <Rectangle.Fill>
+            <ImageBrush x:Name="dudeImage" ImageSource="Assets/dudeUC.png" Stretch="Fill" AlignmentX="Left" AlignmentY="Top"/>
+        </Rectangle.Fill> 
     </Rectangle>
 </UserControl>
